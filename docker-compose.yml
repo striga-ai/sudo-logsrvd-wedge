@@ -1,0 +1,12 @@
+services:
+  collector:
+    build: ./collector
+    container_name: v005-collector
+  client:
+    build: ./client
+    container_name: v005-client
+    depends_on: [collector]
+  attacker:
+    build: ./attacker
+    container_name: v005-attacker
+    depends_on: [collector]
